@@ -13,7 +13,7 @@ This project was developed with [Markus Vuorio][] and it was first bit larger
 Python project I've done.
 
 
-Markus Vuorio: https://twitter.com/#!/maakuth
+[Markus Vuorio]: https://twitter.com/#!/maakuth
 
 
 
