@@ -1,0 +1,74 @@
+(Dokuwiki syntax)
+
+
+====== MAILNETD  (Meta Asynchronous Irc Linked Network Email Transport Daemon) ======
+
+This is a super useful gateway for using irc via email client. 
+
+Final assignment for ties323 by Esa-Matti Suuronen <esa-matti ät suuronen dot org> and Markus Vuorio <mamaarvu @ jyu.fi>
+
+
+
+IRC-network for testing: **murrikka.ath.cx 6667**
+
+
+==== Functionality ====
+
+
+=== SMTP ===
+  * Send messages to irc by setting irc-channel or a nick to the to-field.
+    * Ex. #naapurinpoika@IRCnet.irc 
+    * Is hash allowed in email address?
+  * First message
+    * A connection to to specified* irc-network will be made. *Specified when starting the gateway.
+    * Nick will be taken from sender-address.
+    * POP3 will accept the nick as username.
+  * Gateway will autojoin channels as user sends messages.
+  * Gateway will disconnect from irc after some idle time.
+    * or just after /quit :)
+
+== Notes ==
+  * Max message length
+  * Irc does not support newlines. 
+  * Flood
+
+  
+=== POP3 ===
+  * Receive messages via POP3-server.
+  * All messages of one channel (or query) will be buffered in to a one message.
+    * So if user is only on one channel he/she will always get only one (new) message from the server.
+    * User can send messages to a channel by using reply.
+  * Username will be same as irc-nick.
+  * Password will be the first one entered 
+    * I think this isn't really required for this assignment... User could be identified  only by username.
+
+
+
+
+==== Possible implementation languages ====
+  * Python <- I think we've settled with this, asyncore/asynchat looks nice
+  * Java
+  * C#
+  * <del>Perl</del>
+  * LOLCODE
+
+
+
+==== Links ====
+Some useful links
+=== RFCs ===
+  * SMTP http://tools.ietf.org/html/rfc0821
+  * IRC http://tools.ietf.org/html/rfc2812
+  * POP3 http://tools.ietf.org/html/rfc1939
+  * Mail format http://tools.ietf.org/html/rfc5322
+
+=== Python ===
+  * http://www.python.org/doc/2.5/lib/socket-objects.html
+  * http://www.python.org/doc/2.5.2/lib/module-socket.html
+
+  * http://www.python.org/doc/2.5/lib/module-select.html
+    * Ex. http://my.opera.com/CrazyTerabyte/blog/2009/02/07/simple-tcp-server-written-in-python-using-socket-and-select
+
+
+
+
